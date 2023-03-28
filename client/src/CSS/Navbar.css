@@ -1,0 +1,22 @@
+ul {
+  list-style: none;
+}
+
+.group-nav-li {
+  display: flex;
+  flex-direction: row;
+}
+
+.group-nav-li-icon {
+  padding-top: 5px;
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+  }
+  .nav-li {
+    text-align: center;
+    padding: 10px;
+  }
+}

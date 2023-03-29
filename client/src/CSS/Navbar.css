@@ -1,0 +1,15 @@
+.primary-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgb(255, 247, 0);
+}
+
+.nav-dp-cont {
+  padding-top: 8px;
+}
+.dp {
+  width: 42px;
+  height: 42px;
+  border-radius: 50px;
+}

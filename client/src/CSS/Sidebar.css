@@ -1,0 +1,29 @@
+ul {
+  list-style: none;
+}
+.hb-icon {
+  z-index: 50;
+}
+.side-nav-menu {
+  background-color: rgb(255, 247, 0);
+  height: 91.9vh;
+}
+.nav-li {
+  cursor: pointer;
+}
+.group-nav-li-icon {
+  padding: 5px;
+}
+.group-nav-li {
+  display: flex;
+  flex-direction: row;
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+  }
+  .nav-li {
+    text-align: center;
+  }
+}

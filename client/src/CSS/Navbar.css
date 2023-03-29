@@ -1,22 +1,15 @@
-ul {
-  list-style: none;
-}
-
-.group-nav-li {
+.primary-nav {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  background-color: rgb(255, 247, 0);
 }
 
-.group-nav-li-icon {
-  padding-top: 5px;
+.nav-dp-cont {
+  padding-top: 8px;
 }
-
-@media (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-  }
-  .nav-li {
-    text-align: center;
-    padding: 10px;
-  }
+.dp {
+  width: 42px;
+  height: 42px;
+  border-radius: 50px;
 }

@@ -16,16 +16,21 @@ const postSchema = new mongoose.Schema({
         type: String,
         require: true,
     },
-    img: {
-        type: String,
-        default: "",
-        require: true
+    image: {
+        public_id: {
+            type: String,
+            required: true
+        },
+        url: {
+            type: String,
+            required: true
+        }
     },
 },
 { timestamps: true }
 );
 
 const Posts = mongoose.model("Posts", postSchema);
-module.exports = Products;
+module.exports = Posts;
 
 

@@ -1,6 +1,32 @@
 const router = require("express").Router();
-const userModel = require("../models/users");
-const bcrypt = require("bcrypt");
+const postModel = require("../models/posts");
+const cloudinary = require("../utils/cloudinary");
 
+//newpost
+router.post("/newpost",async (req,res) => {
+  const {username, title, text, image} = req.body;
+  try{
+    const result = await cloudinary.uploader.upload(image, {
+      folder: "posts",
+      //width: 300
+      //crop: "scale"
+    });
 
-  module.exports = router;
+    const post = await postModel.create({
+      username,
+      title,
+      text,
+      image: {
+        public_id: result.public_id,
+        url: result.secure_url
+      }
+    });
+    
+    res.status(201).json({success: true, post});
+  }
+  catch(err){
+    return res.status(500).json(err);
+  }
+})
+  
+module.exports = router;

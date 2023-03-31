@@ -54,3 +54,5 @@ router.post("/register", async (req, res) => {
       res.status(200).json("user doesn't exist");
     }
   });
+
+  module.exports = router;

@@ -1,16 +1,16 @@
 const mongoose = require("mongoose");
+const validator = require("validator");
 
 const userSchema = new mongoose.Schema({
     name: {
         type: String,
-        require: true,
+        require: [true,"Please enter your name"],
         min: 3,
         max: 20
-    
     },
     uid: {
         type: String,
-        require: true,
+        require: [true,"Please enter your UID"],
         unique:true,
         min: 8,
         max: 8
@@ -21,18 +21,19 @@ const userSchema = new mongoose.Schema({
     },
     phone: {
         type: String,
-        require: true,
-        max: 10
+        require: [true,"Please enter your number"],
+        max: 10,
+        validate: validator.isMobilePhone
     },
     year: {
         type: String,
-        require: true,
+        require: [true,"Please enter year of graduation"],
     },
     email: {
         type: String,
-        require: true,
-        max: 50,
-        unique: true
+        require: [true,"Please enter your email"],
+        unique: true,
+        validate: validator.isEmail
     },
     isAdmin: {
         type: Boolean,

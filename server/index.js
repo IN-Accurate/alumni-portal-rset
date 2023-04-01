@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const app = express();
 const url = "mongodb+srv://alumni:alumni@cluster0.yol4t5s.mongodb.net/test";
 const {config} = require("dotenv");
-
+const ErrorMiddleware = require("./middlewares/Error.js")
 config({ path: "./config/config.env" });
 
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true});
@@ -24,6 +24,9 @@ const postRouter = require("./routes/Posts");
 app.use("/home",postRouter);
 const userRouter = require("./routes/Users");
 app.use("/profile",postRouter);
+
+
+app.use(ErrorMiddleware);
 
 app.listen("3001",()=> {
     

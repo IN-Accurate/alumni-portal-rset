@@ -5,7 +5,8 @@ ul {
   z-index: 50;
 }
 .side-nav-menu {
-  background-color: rgb(255, 247, 0);
+  background-color: #2f0f5d;
+  color: white;
   height: 100vh;
 }
 .nav-li {

@@ -33,7 +33,7 @@ function Sidebar() {
         toggled={isOpen}
         toggle={handleHBclick}
         direction='left'
-        color='#27e1c1'
+        color='#FAF7F0'
         easing='ease-in-out'
         rounded
         hideOutline={true}

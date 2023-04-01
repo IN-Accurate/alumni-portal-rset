@@ -8,8 +8,12 @@ function Registration() {
       <div className='reg-inv-div-2'></div>
       <div className='reg-left'>
         <div className='reg-txt'>
-          <div className='reg-txt-1'>Join the RSET Alumni</div>
-          <div className='reg-txt-2'> Network now!</div>
+          <div className='reg-txt-1'>
+            Join the <span className='reg-txt-1-2'>RSET</span> Alumni
+          </div>
+          <div className='reg-txt-2'>
+            <span className='reg-txt-2-2'> NET</span>WORK now!
+          </div>
         </div>
         <div className='reg-logo'>
           <img src={logo} alt='reg-logo' className='reg-logo' />

@@ -39,7 +39,16 @@
 
 .reg-txt-2 {
   padding-top: 1%;
+  padding-left: 45%;
+  color: #2f0f5d;
+}
+.reg-txt-1-2 {
   color: white;
+  font-size: 1.2em;
+}
+.reg-txt-2-2 {
+  color: white;
+  font-size: 1.2em;
 }
 
 .reg-logo {
@@ -49,4 +58,9 @@
   z-index: 10;
   margin-bottom: -1.4vh;
   border-top-left-radius: 200px;
+}
+
+.reg-right {
+  background-color: #eee9da;
+  width: 65vw;
 }

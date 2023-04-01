@@ -11,32 +11,28 @@ const userSchema = new mongoose.Schema({
     uid: {
         type: String,
         require: true,
+        unique:true,
         min: 8,
         max: 8
-    
+    },
+    branch: {
+        type: String,
+        require: true,
     },
     phone: {
         type: String,
         require: true,
         max: 10
     },
-    address: {
+    year: {
         type: String,
         require: true,
-        max: 100
     },
     email: {
         type: String,
         require: true,
         max: 50,
         unique: true
-       
-    },
-    password: {
-        type: String,
-        require: true,
-        min: 8,
-        max: 30
     },
     isAdmin: {
         type: Boolean,

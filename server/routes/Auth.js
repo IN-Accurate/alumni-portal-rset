@@ -1,24 +1,33 @@
 const router = require("express").Router();
 const userModel = require("../models/users");
 const bcrypt = require("bcrypt");
+const authModel = require("../models/auth");
 
 //register
 router.post("/register", async (req, res) => {
     try {
+      const {name,uid,branch,phone,year,email,isadmin,password} = req.body;
       const salt = await bcrypt.genSalt(10);
-      const hashedPassword = await bcrypt.hash(req.body.password, salt);
+      const hashedPassword = await bcrypt.hash(password, salt);
   
       const newUser = new userModel({
-        name: req.body.name,
-        uid: req.body.uid,
-        phone: req.body.phone,
-        address: req.body.address,
-        email: req.body.email,
-        password: hashedPassword,
-        isAdmin: req.body.isAdmin,
+        name,
+        uid,
+        branch,
+        phone,
+        year,
+        email,
+        isadmin
       });
       const User = await newUser.save();
-      res.status(200).json(User);
+
+      const newAuth = new authModel({
+        uid,
+        password:hashedPassword
+      });
+      const Auth = await newAuth.save();
+
+      res.status(200).json({user: User, auth: Auth});
     } catch (error) {
       console.log(error);
     }
@@ -27,12 +36,9 @@ router.post("/register", async (req, res) => {
   //login
   router.post("/login", async (req, res) => {
     try {
-      let user = await userModel.findOne({ name: req.body.name });
+      let user = await authModel.findOne({ uid: req.body.uid });
       let flag = -1;
-      if (req.body.name === "admin" && req.body.password === "admin") {
-        res.status(200).json(user);
-         flag=1;
-      }
+      
       if (!user) {
         flag = 1;
         user = { name: "User not found" };

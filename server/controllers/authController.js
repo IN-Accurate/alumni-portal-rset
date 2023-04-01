@@ -1,3 +1,8 @@
+const userModel = require("../models/users");
+const bcrypt = require("bcrypt");
+const authModel = require("../models/auth");
+const jwt = require("jsonwebtoken");
+
 const userRegister = async (req,res,next) => {
     try {
         const {name,uid,branch,phone,year,email,isadmin,password} = req.body;
@@ -21,7 +26,12 @@ const userRegister = async (req,res,next) => {
         });
         const Auth = await newAuth.save();
   
-        res.status(200).json({user: User, auth: Auth});
+        res.status(200).json({
+          user: User, 
+          auth: Auth, 
+          token: generateToken(User._id)
+        });
+
       } catch (error) {
         console.log(error);
       }
@@ -44,14 +54,23 @@ const userLogin = async (req, res, next) => {
         );
         if (!validPassword) {
           user = { name: "Wrong password" };
-          res.status(200).json(user);
+          res.status(200).json(user);  
           flag = 0;
         }
       }
-      if (flag == -1) res.status(200).json(user);
+      if (flag == -1) res.status(200).json({
+        user: user,
+        token: generateToken(user._id)
+      });
     } catch (err) {
       res.status(200).json("user doesn't exist");
     }
+}
+
+const generateToken = (id) => {
+  return jwt.sign({id},process.env.JWT_SECRET, {
+    expiresIn: "30d"
+  })
 }
 
 module.exports = {userRegister,userLogin};

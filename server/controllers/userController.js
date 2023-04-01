@@ -1,3 +1,6 @@
+const userModel = require("../models/users");
+const bcrypt = require("bcrypt");
+
 const updateUsers = async (req,res,next) => {
     if(req.body.uid === req.params.uid || req.body.isAdmin) {
     try {

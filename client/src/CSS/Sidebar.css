@@ -6,7 +6,7 @@ ul {
 }
 .side-nav-menu {
   background-color: rgb(255, 247, 0);
-  height: 91.9vh;
+  height: 100vh;
 }
 .nav-li {
   cursor: pointer;

@@ -16,9 +16,9 @@ function Sidebar() {
     if (avatar === false) {
       let dpSelector = document.getElementById('nav-dp-cont');
       if (dpSelector != null) dpSelector.style.display = 'none';
+      document.body.style.overflow = 'hidden';
     } else if (avatar === true) {
       let dpSelector = document.getElementById('nav-dp-cont');
-
       if (dpSelector != null) dpSelector.style.display = 'block';
     }
   }, [avatar]);

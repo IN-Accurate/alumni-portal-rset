@@ -3,6 +3,7 @@
   flex-direction: row;
   justify-content: space-between;
   background-color: rgb(255, 247, 0);
+  overflow: hidden;
 }
 
 .nav-dp-cont {

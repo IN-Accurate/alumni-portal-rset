@@ -1,5 +1,6 @@
 const router = require("express").Router();
-const { updateUsers, deleteUsers, getUsers } = require("../controllers/userController");
+const { updateUsers, deleteUsers, getUser } = require("../controllers/userController");
+const {protect} = require("../middlewares/authMiddleware");
 
 //update
 router.route("/:id").put(updateUsers)
@@ -8,6 +9,6 @@ router.route("/:id").put(updateUsers)
 router.route("/:id").delete(deleteUsers);
 
 //get a user
-router.route("/:id").get(getUsers);
+router.route("/:id").get(protect,getUser);
 
 module.exports = router;

@@ -23,7 +23,7 @@ app.use("/auth",authRouter);
 const postRouter = require("./routes/Posts");
 app.use("/home",postRouter);
 const userRouter = require("./routes/Users");
-app.use("/profile",postRouter);
+app.use("/profile",userRouter);
 
 
 app.use(ErrorMiddleware);

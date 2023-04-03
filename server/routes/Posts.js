@@ -2,6 +2,8 @@ const router = require("express").Router();
 const postModel = require("../models/posts");
 const cloudinary = require("../utils/cloudinary");
 
+const {protect} = require("../middlewares/authMiddleware");
+
 //newpost
 router.post("/newpost",async (req,res) => {
   const {username, title, text, image} = req.body;

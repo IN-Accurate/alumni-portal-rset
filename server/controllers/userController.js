@@ -39,7 +39,7 @@ const deleteUsers = async(req,res,next) => {
   }
 }
 
-const getUsers = async(req,res,next) => {
+const getUser = async(req,res,next) => {
   try{
     const user =  await userModel.findById(req.params.id);
     res.status(200).json(user);
@@ -49,5 +49,5 @@ const getUsers = async(req,res,next) => {
   }
 }
 
-module.exports = {getUsers, deleteUsers, updateUsers}
+module.exports = {getUser, deleteUsers, updateUsers}
 

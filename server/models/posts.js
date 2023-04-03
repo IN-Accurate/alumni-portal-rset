@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
+const Users = require("./users");
 
 const postSchema = new mongoose.Schema({
-    username: {
-        type: String,
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
         require: true,
-        min: 3,
-        max: 30
+        ref: "Users"
     },
     title: {
         type: String,

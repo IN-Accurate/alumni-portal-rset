@@ -6,13 +6,13 @@ const authSchema = new mongoose.Schema({
         require: true,
         min: 8,
         max: 8
-    
     },
     password: {
         type: String,
         require: true,
         min: 8,
-        max: 30
+        max: 30,
+        select: false
     },    
 },
 { timestamps: true }

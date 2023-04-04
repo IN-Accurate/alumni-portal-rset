@@ -71,40 +71,43 @@ function Sidebar() {
               Login
             </li>
             {isLoggedIn && (
-              <li>
-                <span
-                  className='nav-li group-nav-li'
-                  onClick={() => setShowGroupsMenu(!showGroupsMenu)}
-                >
-                  Groups
-                  {!showGroupsMenu && (
-                    <BsCaretDownFill className='group-nav-li-icon' />
-                  )}
-                  {showGroupsMenu && (
-                    <BsCaretUpFill className='group-nav-li-icon' />
-                  )}
-                </span>
-                {showGroupsMenu && (
-                  <ul>
-                    <li>1</li>
-                    <li>2</li>
-                    <li>3</li>
-                    {!showMoreGroups && (
-                      <>
-                        <li>4</li>
-                        <li>5</li>
-                        <li>5</li>
-                        <li>6</li>
-                        <li>7</li>
-                      </>
+              <>
+                <li>
+                  <span
+                    className='nav-li group-nav-li'
+                    onClick={() => setShowGroupsMenu(!showGroupsMenu)}
+                  >
+                    Groups
+                    {!showGroupsMenu && (
+                      <BsCaretDownFill className='group-nav-li-icon' />
                     )}
-                    <li onClick={() => setShowMoreGroups(!showMoreGroups)}>
-                      {showMoreGroups && <p>Show more</p>}
-                      {!showMoreGroups && <p>Show less</p>}
-                    </li>
-                  </ul>
-                )}
-              </li>
+                    {showGroupsMenu && (
+                      <BsCaretUpFill className='group-nav-li-icon' />
+                    )}
+                  </span>
+                  {showGroupsMenu && (
+                    <ul>
+                      <li>1</li>
+                      <li>2</li>
+                      <li>3</li>
+                      {!showMoreGroups && (
+                        <>
+                          <li>4</li>
+                          <li>5</li>
+                          <li>5</li>
+                          <li>6</li>
+                          <li>7</li>
+                        </>
+                      )}
+                      <li onClick={() => setShowMoreGroups(!showMoreGroups)}>
+                        {showMoreGroups && <p>Show more</p>}
+                        {!showMoreGroups && <p>Show less</p>}
+                      </li>
+                    </ul>
+                  )}
+                </li>
+                <button className='create-post-btn'>Create Post</button>
+              </>
             )}
           </ul>
         </div>

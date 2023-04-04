@@ -32,3 +32,19 @@ ul {
     text-align: center;
   }
 }
+
+.create-post-btn {
+  position: absolute;
+  width: 70%;
+  height: 4vw;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  border-radius: 5vw;
+  font-size: 1.5em;
+  top: 50%;
+  left: 10%;
+  color: white;
+  font-size: 2em;
+  font-weight: 600;
+  background-color: #00ffd5;
+  cursor: pointer;
+}

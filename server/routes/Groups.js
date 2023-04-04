@@ -5,4 +5,7 @@ const {protect} = require("../middlewares/authMiddleware");
 //create group
 router.route("/create").post(createGroup);
 
+//join group
+router.route("/:groupId/join").post(joinGroup);
+
 module.exports = router;

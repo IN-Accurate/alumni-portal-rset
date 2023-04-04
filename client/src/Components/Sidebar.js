@@ -24,10 +24,9 @@ function Sidebar() {
   }, [avatar]);
   const handleHBclick = () => {
     setAvatar(!avatar);
-    let homeSelector = document.getElementById('home-bot-left');
-    if (homeSelector.style.marginLeft === '15vw')
-      homeSelector.style.marginLeft = '0vw';
-    else homeSelector.style.marginLeft = '15vw';
+    let homeSelector = document.getElementById('home-bot');
+    if (homeSelector.style.left === '15vw') homeSelector.style.left = '0vw';
+    else homeSelector.style.left = '15vw';
     setOpen(!isOpen);
   };
   return (

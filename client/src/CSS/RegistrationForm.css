@@ -3,3 +3,29 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+
+.reg-input{
+    background-color: #1E1F22;
+    color: #caccce;
+    width: 20vw;
+    height: 4vh;
+    border: #1E1F22;
+    border-radius: 2px;
+}
+
+.register-form{
+    position: relative;
+    left: 17vw;
+    background-color: black;
+    border-radius: 10px;
+    width: 30vw;
+}
+
+.reg-button{
+    background-color: #5865F2;
+    font-size: large;
+    color: white;
+    border-radius: 5px;
+    height: 10vh;
+    width: 15vw;
+}

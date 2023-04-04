@@ -3,17 +3,21 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Sling as Hamburger } from 'hamburger-react';
 import { BsCaretDownFill, BsCaretUpFill } from 'react-icons/bs';
+import axios from 'axios';
+
 function Sidebar() {
   const [isOpen, setOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showMoreGroups, setShowMoreGroups] = useState(true);
   const [showGroupsMenu, setShowGroupsMenu] = useState(false);
   const [avatar, setAvatar] = useState(true);
+
   let location = window.location.pathname;
 
   function handleCreatePost() {}
 
   const navigate = useNavigate();
+
   useEffect(() => {
     setIsLoggedIn(true);
     if (avatar === false) {
@@ -25,6 +29,7 @@ function Sidebar() {
       if (dpSelector != null) dpSelector.style.display = 'block';
     }
   }, [avatar]);
+
   const handleHBclick = () => {
     setAvatar(!avatar);
     let homeSelector = document.getElementById('home-bot');
@@ -32,6 +37,7 @@ function Sidebar() {
     else homeSelector.style.left = '15vw';
     setOpen(!isOpen);
   };
+
   return (
     <div className='side-cont'>
       <Hamburger

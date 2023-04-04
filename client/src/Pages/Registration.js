@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from '../assets/reg.svg';
 import '../CSS/Registration.css';
+import RegistrationForm from '../Components/RegistrationForm.js';
 function Registration() {
   return (
     <div className='reg-cont'>
@@ -19,7 +20,9 @@ function Registration() {
           <img src={logo} alt='reg-logo' className='reg-logo' />
         </div>
       </div>
-      <div className='reg-right form-cont'>REG FORM HERE</div>
+      <div className='reg-right form-cont'>
+      <RegistrationForm/>
+      </div>
     </div>
   );
 }

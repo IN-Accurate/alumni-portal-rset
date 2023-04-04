@@ -33,6 +33,12 @@ function Sidebar() {
         toggled={isOpen}
         toggle={handleHBclick}
         direction='left'
+        color='#FAF7F0'
+        easing='ease-in-out'
+        rounded
+        hideOutline={true}
+        duration={0.47}
+        size={42}
       />
       {isOpen && (
         <div className='side-nav-menu'>

@@ -7,7 +7,11 @@ ul {
 .side-nav-menu {
   background-color: #2f0f5d;
   color: white;
+  z-index: 10;
+  position: absolute;
+  top: 0;
   height: 100vh;
+  width: 15vw;
 }
 .nav-li {
   cursor: pointer;

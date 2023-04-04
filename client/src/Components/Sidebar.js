@@ -24,6 +24,10 @@ function Sidebar() {
   }, [avatar]);
   const handleHBclick = () => {
     setAvatar(!avatar);
+    let homeSelector = document.getElementById('home-bot-left');
+    if (homeSelector.style.marginLeft === '15vw')
+      homeSelector.style.marginLeft = '0vw';
+    else homeSelector.style.marginLeft = '15vw';
     setOpen(!isOpen);
   };
   return (
@@ -42,6 +46,19 @@ function Sidebar() {
       />
       {isOpen && (
         <div className='side-nav-menu'>
+          {' '}
+          <Hamburger
+            className='hb-icon'
+            toggled={isOpen}
+            toggle={handleHBclick}
+            direction='left'
+            color='#FAF7F0'
+            easing='ease-in-out'
+            rounded
+            hideOutline={true}
+            duration={0.47}
+            size={42}
+          />
           <ul>
             {location !== '/' && (
               <li className='nav-li home-nav-li' onClick={() => navigate('/')}>

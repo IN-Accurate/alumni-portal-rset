@@ -19,7 +19,7 @@ function Registration() {
           <img src={logo} alt='reg-logo' className='reg-logo' />
         </div>
       </div>
-      <div className='reg-right form-cont'></div>
+      <div className='reg-right form-cont'>REG FORM HERE</div>
     </div>
   );
 }

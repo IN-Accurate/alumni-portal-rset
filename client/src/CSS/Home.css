@@ -1,9 +1,43 @@
 .home-cont {
   display: flex;
+  z-index: -1;
   flex-direction: column;
 }
 
 .home-bot {
   height: calc(100vh - 12px);
+  display: flex;
+  flex-direction: row;
   background-color: #eee9da;
+  height: 100vh;
+}
+
+.home-bot-left {
+  width: 60vw;
+  overflow-y: auto;
+  background-color: red;
+}
+
+.home-bot-right {
+  background-color: green;
+  width: 25vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.home-bot-right-1 {
+  background-color: white;
+  height: 20vh;
+  width: 25vw;
+}
+
+.home-bot-right-2 {
+  background-color: black;
+  height: 20vh;
+  width: 25vw;
+}
+
+.home-bot-right-3 {
+  background-color: purple;
+  width: 25vw;
 }

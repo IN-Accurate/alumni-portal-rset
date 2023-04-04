@@ -1,16 +1,17 @@
 .primary-nav {
   display: flex;
   flex-direction: row;
+  height: 7vh;
   justify-content: space-between;
   background-color: #2f0f5d;
   overflow: hidden;
 }
 
 .nav-dp-cont {
-  padding-top: 8px;
+  padding-top: 1vh;
 }
 .dp {
-  width: 42px;
-  height: 42px;
-  border-radius: 50px;
+  width: 5vh;
+  height: 5vh;
+  border-radius: 3vh;
 }

@@ -1,0 +1,9 @@
+.home-cont {
+  display: flex;
+  flex-direction: column;
+}
+
+.home-bot {
+  height: calc(100vh - 12px);
+  background-color: #eee9da;
+}

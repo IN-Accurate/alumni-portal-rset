@@ -10,7 +10,7 @@
 }
 .reg-inv-div-2 {
   background-color: #2f0f5d;
-  height: 30vh;
+  height: 25vh;
   width: 35vw;
   position: fixed;
   z-index: 5;
@@ -29,7 +29,7 @@
   font-size: 4em;
   font-weight: 700;
   z-index: 10;
-  margin-top: 32%;
+  margin-top: 18vh;
   letter-spacing: 4px;
   padding-left: 10px;
 }
@@ -38,7 +38,14 @@
 }
 
 .reg-txt-2 {
-  padding-top: 1%;
+  margin-left: 44%;
+  color: #2f0f5d;
+}
+.reg-txt-1-2 {
+  color: white;
+}
+
+.reg-txt-2-2 {
   color: white;
 }
 
@@ -47,6 +54,6 @@
   padding: 0;
   width: 35vw;
   z-index: 10;
-  margin-bottom: -1.4vh;
+  margin-bottom: -1.2vh;
   border-top-left-radius: 200px;
 }

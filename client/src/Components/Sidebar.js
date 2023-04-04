@@ -10,6 +10,9 @@ function Sidebar() {
   const [showGroupsMenu, setShowGroupsMenu] = useState(false);
   const [avatar, setAvatar] = useState(true);
   let location = window.location.pathname;
+
+  function handleCreatePost() {}
+
   const navigate = useNavigate();
   useEffect(() => {
     setIsLoggedIn(true);
@@ -70,6 +73,12 @@ function Sidebar() {
             >
               Login
             </li>
+            <li
+              className='nav-li reg-nav-li'
+              onClick={() => navigate('/register')}
+            >
+              Register
+            </li>
             {isLoggedIn && (
               <>
                 <li>
@@ -106,7 +115,9 @@ function Sidebar() {
                     </ul>
                   )}
                 </li>
-                <button className='create-post-btn'>Create Post</button>
+                <button className='create-post-btn' onClick={handleCreatePost}>
+                  Create Post
+                </button>
               </>
             )}
           </ul>

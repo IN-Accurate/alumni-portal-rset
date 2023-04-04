@@ -38,7 +38,11 @@ const userSchema = new mongoose.Schema({
     isAdmin: {
         type: Boolean,
         default: false
-    },    
+    },
+    groups: {
+        type: Array,
+        default: []
+    }    
 },
 { timestamps: true }
 );

@@ -49,5 +49,15 @@ const getUser = async(req,res,next) => {
   }
 }
 
-module.exports = {getUser, deleteUsers, updateUsers}
+const userGroups = async(req,res,next) => {
+  try{
+    const user = userModel.findById(req.params.id);
+    res.status(200).json(user.groups);
+  }
+  catch(err) {
+      res.status(500).json({error: true, message:err.message});
+  }
+}
+
+module.exports = {getUser, deleteUsers, updateUsers, userGroups}
 

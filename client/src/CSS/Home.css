@@ -8,6 +8,9 @@
   height: calc(100vh - 12px);
   display: flex;
   flex-direction: row;
+  left: 0;
+  position: relative;
+  transition: left 0.25s ease-in-out;
   background-color: #eee9da;
   height: 100vh;
 }
@@ -34,7 +37,6 @@
 .home-bot-right-2 {
   background-color: black;
   height: 20vh;
-  width: 25vw;
 }
 
 .home-bot-right-3 {

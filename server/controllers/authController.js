@@ -39,9 +39,9 @@ const userRegister = async (req,res,next) => {
 
 const userLogin = async (req, res, next) => {
     try {
-      let user = await authModel.findOne({ uid: req.body.uid });
+      let user = await authModel.findOne({ uid: req.body.uid }).select('+password');
       let flag = -1;
-      
+    
       if (!user) {
         flag = 1;
         user = { name: "User not found" };
@@ -63,7 +63,8 @@ const userLogin = async (req, res, next) => {
         token: generateToken(user._id)
       });
     } catch (err) {
-      res.status(200).json("user doesn't exist");
+      console.log(err);
+      res.status(200).json("User doesn't exist");
     }
 }
 

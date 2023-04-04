@@ -24,7 +24,8 @@ const postRouter = require("./routes/Posts");
 app.use("/home",postRouter);
 const userRouter = require("./routes/Users");
 app.use("/profile",userRouter);
-
+const groupRouter = require("./routes/Groups");
+app.use("/group",groupRouter);
 
 app.use(ErrorMiddleware);
 

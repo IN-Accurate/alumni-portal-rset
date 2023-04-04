@@ -6,7 +6,7 @@ const {protect} = require("../middlewares/authMiddleware");
 
 //newpost
 router.post("/newpost",async (req,res) => {
-  const {username, title, text, image} = req.body;
+  const {userid, title, text, image} = req.body;
   try{
     const result = await cloudinary.uploader.upload(image, {
       folder: "posts",
@@ -15,7 +15,7 @@ router.post("/newpost",async (req,res) => {
     });
 
     const post = await postModel.create({
-      username,
+      userid,
       title,
       text,
       image: {

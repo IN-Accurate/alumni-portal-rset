@@ -40,6 +40,7 @@ const userRegister = async (req,res,next) => {
 const userLogin = async (req, res, next) => {
     try {
       let user = await authModel.findOne({ uid: req.body.uid }).select('+password');
+      let userId = await userModel.find({uid: req.body.uid})._id;
       let flag = -1;
     
       if (!user) {
@@ -60,7 +61,8 @@ const userLogin = async (req, res, next) => {
       }
       if (flag == -1) res.status(200).json({
         user: user,
-        token: generateToken(user._id)
+        token: generateToken(user._id),
+        id: userId
       });
     } catch (err) {
       console.log(err);

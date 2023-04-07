@@ -3,6 +3,10 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Sling as Hamburger } from 'hamburger-react';
 import { BsCaretDownFill, BsCaretUpFill } from 'react-icons/bs';
+import { BsPaperclip } from 'react-icons/bs';
+import { FaLocationArrow } from 'react-icons/fa';
+import { AiOutlineClose } from 'react-icons/ai';
+
 import axios from 'axios';
 
 function Sidebar() {
@@ -11,9 +15,54 @@ function Sidebar() {
   const [showMoreGroups, setShowMoreGroups] = useState(true);
   const [showGroupsMenu, setShowGroupsMenu] = useState(false);
   const [avatar, setAvatar] = useState(true);
-
-  let location = window.location.pathname;
+  const [postClicked, setPostClicked] = useState(false);
   const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    userId: '',
+    title: '',
+    text: '',
+    image: null,
+  });
+  let location = window.location.pathname;
+
+  const [titleCounter, setTitleCounter] = useState(0);
+  const [textCounter, setTextCounter] = useState(0);
+
+  const handleInputChange = (event) => {
+    const target = event.target;
+    const name = target.name;
+    const value = name === 'image' ? target.files[0] : target.value;
+
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+
+    if (name === 'title') {
+      setTitleCounter(value.length);
+    } else if (name === 'text') {
+      setTextCounter(value.length);
+    }
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const data = new FormData();
+    data.append('userId', formData.userId);
+    data.append('title', formData.title);
+    data.append('text', formData.text);
+    data.append('image', formData.image);
+    axios
+      .post('http://localhost:3001/home/newpost', data)
+      .then((response) => console.log(response.data))
+      .catch((error) => console.error(error));
+  };
+  function handleCreatePost() {
+    setPostClicked(true);
+  }
+  function handleClosePost() {
+    setPostClicked(false);
+  }
 
   useEffect(() => {
     setIsLoggedIn(true);
@@ -76,6 +125,12 @@ function Sidebar() {
             >
               Login
             </li>
+            <li
+              className='nav-li reg-nav-li'
+              onClick={() => navigate('/register')}
+            >
+              Register
+            </li>
             {isLoggedIn && (
               <>
                 <li>
@@ -112,10 +167,83 @@ function Sidebar() {
                     </ul>
                   )}
                 </li>
-                <button className='create-post-btn'>Create Post</button>
+                <button className='create-post-btn' onClick={handleCreatePost}>
+                  Create Post
+                </button>
               </>
             )}
           </ul>
+        </div>
+      )}
+      {postClicked && (
+        <div className='create-post-cont'>
+          <AiOutlineClose className='close-icon' onClick={handleClosePost} />
+          <form onSubmit={handleSubmit}>
+            <div>
+              <label htmlFor='userId'>User ID:</label>
+              <input
+                type='text'
+                id='userId'
+                name='userId'
+                value={formData.userId}
+                onChange={handleInputChange}
+                required
+              />
+            </div>
+            <div>
+              <label htmlFor='title'>Title:</label>
+              <input
+                type='text'
+                id='title'
+                name='title'
+                maxLength='60'
+                value={formData.title}
+                onChange={handleInputChange}
+                required
+              />
+              <span>{titleCounter}/60</span>
+            </div>
+            <div>
+              <label htmlFor='text'>Text:</label>
+              <textarea
+                id='text'
+                name='text'
+                maxLength='3000'
+                value={formData.text}
+                onChange={handleInputChange}
+                required
+              />
+              <span>{textCounter}/3000</span>
+            </div>
+            <div>
+              <label htmlFor='image'>Image:</label>
+              <div className='input-file'>
+                <input
+                  type='file'
+                  id='image'
+                  name='image'
+                  accept='image/*'
+                  onChange={handleInputChange}
+                  required
+                />
+                <label htmlFor='image'>
+                  <BsPaperclip />
+                </label>
+              </div>
+              {formData.image ? (
+                <img src={URL.createObjectURL(formData.image)} alt='Uploaded' />
+              ) : (
+                <>
+                  <span>No image uploaded</span>
+                </>
+              )}
+            </div>
+            <div>
+              <button type='submit' className='btn-submit'>
+                <FaLocationArrow />
+              </button>
+            </div>
+          </form>
         </div>
       )}
     </div>

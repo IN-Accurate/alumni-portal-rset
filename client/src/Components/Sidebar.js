@@ -47,16 +47,13 @@ function Sidebar() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    // send data to server
-    const endpoint = 'http://localhost:3001/home/newpost';
     const data = new FormData();
     data.append('userId', formData.userId);
     data.append('title', formData.title);
     data.append('text', formData.text);
     data.append('image', formData.image);
     axios
-      .post(endpoint, data)
+      .post('http://localhost:3001/home/newpost', data)
       .then((response) => console.log(response.data))
       .catch((error) => console.error(error));
   };

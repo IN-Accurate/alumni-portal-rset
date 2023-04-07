@@ -62,6 +62,10 @@
 .form-cont {
   width: 65vw;
   text-align: center;
-  background-color: #d1d1d1;
+  background-color: #1f1d1d;
   color: #caccce;
+}
+
+#reg-uid{
+  text-transform: capitalize;
 }

@@ -79,8 +79,15 @@ function Sidebar() {
   const handleHBclick = () => {
     setAvatar(!avatar);
     let homeSelector = document.getElementById('home-bot');
-    if (homeSelector.style.left === '15vw') homeSelector.style.left = '0vw';
-    else homeSelector.style.left = '15vw';
+    let homerightSelector = document.getElementById('home-bot-right');
+    if (homeSelector.style.left === '15%') {
+      homeSelector.style.left = '0%';
+      homerightSelector.style.width = '25%';
+    } else {
+      homeSelector.style.left = '15%';
+      homerightSelector.style.width = '18%';
+    }
+
     setOpen(!isOpen);
   };
 

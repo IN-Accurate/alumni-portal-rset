@@ -11,7 +11,7 @@ function Home() {
       </div>
       <div className='home-bot' id='home-bot'>
         <div className='home-bot-left' id='home-bot-left'></div>
-        <div className='home-bot-right'>
+        <div className='home-bot-right' id='home-bot-right'>
           <Events className='event-cont' />
           <Announcements />
           <div className='home-bot-right-2'></div>

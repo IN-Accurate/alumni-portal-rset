@@ -46,16 +46,12 @@ function RegistrationForm(){
         <div className="register-container">
         <form className="register-form">
             <h2>SIGN UP</h2>
-            <label>Email</label><br/>
-            <input type="text" name="email" className="reg-input" onChange={handleChange}></input><br/><br/>
-            <label>UID</label><br/>
-            <input type="text" name="uid" className="reg-input" onChange={handleChange}></input><br/><br/>
-            <label>Phone</label><br/>
-            <input type="number" name="phone" className="reg-input" onChange={handleChange}></input><br/><br/>
-            <label>Username</label><br/>
+            <label>Username</label><br/>            
             <input type="text" name="name" className="reg-input" onChange={handleChange}></input><br/><br/>
+            <label>UID</label><br/>
+            <input type="text" name="uid" className="reg-input" id="reg-uid" onChange={handleChange}></input><br/><br/>            
             <label>Password</label><br/>
-            <input type="password" name="password" className="reg-input" onChange={handleChange}></input><br/><br/>
+            <input type="password" name="password" className="reg-input" onChange={handleChange}></input><br/><br/>            
             <select name="branch" id="branch" className="reg-input" onChange={handleChange}>
                 <option>Branch</option>
                 {getbranches}
@@ -63,7 +59,11 @@ function RegistrationForm(){
             <select name="year" id="year" className="reg-input" onChange={handleChange}>
                 <option>Year</option>
                 {getyears}
-            </select><br/><br/>
+            </select><br/><br/> 
+            <label>Phone</label><br/>
+            <input type="number" name="phone" className="reg-input" onChange={handleChange}></input><br/><br/>                      
+            <label>Email</label><br/>
+            <input type="text" name="email" className="reg-input" onChange={handleChange}></input><br/><br/>
             <button className="reg-button" onClick={onSubmit}>Register</button><br/><br/>
         </form>
         </div>

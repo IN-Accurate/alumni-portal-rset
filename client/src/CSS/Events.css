@@ -1,5 +1,6 @@
 .event-container {
   background-color: rgb(57, 56, 156);
+  flex-shrink: 1;
   width: 100%;
   margin: 10%;
   border-radius: 20px;

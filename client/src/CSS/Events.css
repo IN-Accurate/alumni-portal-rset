@@ -1,0 +1,37 @@
+.event-container {
+  background-color: rgb(57, 56, 156);
+  width: 100%;
+}
+
+.event-hero {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 48px;
+  color: white;
+  cursor: pointer;
+}
+
+.event-icon {
+  cursor: pointer;
+  font-size: 30px;
+  padding-top: 10px;
+  padding-right: 10px;
+}
+.rotate-both-icon {
+  transition: transform 500ms ease-in-out;
+}
+.rotate-icon {
+  transform: rotate(180deg);
+}
+
+.event-list {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.5s ease;
+}
+
+.event-list-show {
+  max-height: 30vh;
+}

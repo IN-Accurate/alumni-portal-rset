@@ -1,17 +1,22 @@
-const router = require("express").Router();
-const { updateUsers, deleteUsers, getUser, userGroups } = require("../controllers/userController");
-const {protect} = require("../middlewares/authMiddleware");
+const router = require('express').Router();
+const {
+  updateUsers,
+  deleteUsers,
+  getUser,
+  userGroups,
+} = require('../controllers/userController');
+const { protect } = require('../middlewares/authMiddleware');
 
 //update
-router.route("/:id").put(updateUsers)
+router.route('/:id').put(updateUsers);
 
-//delete 
-router.route("/:id").delete(deleteUsers);
+//delete
+router.route('/:id').delete(deleteUsers);
 
 //get a user
-router.route("/:id").get(protect,getUser);
+router.route('/:id').get(protect, getUser);
 
 //get user groups
-router.route("/groups/:id").get(userGroups);
+router.route('/groups/:id').get(userGroups);
 
 module.exports = router;

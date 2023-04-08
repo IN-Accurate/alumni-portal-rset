@@ -20,8 +20,9 @@ function Login() {
     });
   }
 
-  function handlSubmit(event) {
+  function handleSubmit(event) {
     event.preventDefault();
+    console.log(formData);
     axios
       .post('http://localhost:3001/auth/login', formData)
       .then((response) => {
@@ -50,7 +51,7 @@ function Login() {
           <input type='password' name='password' onChange={handleChange} />
           <br />
           <br />
-          <button onClick={handlSubmit}>Login</button>
+          <button onClick={handleSubmit}>Login</button>
           <br />
           <br />
         </form>

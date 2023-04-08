@@ -12,12 +12,8 @@ function Home() {
       <div className='home-bot' id='home-bot'>
         <div className='home-bot-left' id='home-bot-left'></div>
         <div className='home-bot-right'>
-          <div className='home-bot-right-1'>
-            <Events />
-          </div>
-          <div className='home-bot-right-2'>
-            <Announcements />
-          </div>
+          <Events className='event-cont' />
+          <Announcements />
           <div className='home-bot-right-2'></div>
         </div>
       </div>

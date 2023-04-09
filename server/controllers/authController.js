@@ -40,8 +40,8 @@ const userRegister = async (req,res,next) => {
 const userLogin = async (req, res, next) => {
     try {
       let user = await authModel.findOne({ uid: req.body.uid }).select('+password');
-      let userid = await userModel.findOne({uid: req.body.uid});
-      user._id = userid;
+      let USER = await userModel.findOne({ uid: req.body.uid });
+
       let flag = -1;
     
       if (!user) {
@@ -61,8 +61,8 @@ const userLogin = async (req, res, next) => {
         }
       }
       if (flag == -1) res.status(200).json({
-        user: user,
-        token: generateToken(user._id),
+        user: USER,
+        token: generateToken(USER._id),
       });
     } catch (err) {
       console.log(err);

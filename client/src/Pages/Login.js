@@ -64,17 +64,15 @@ function Login() {
     <div className='login-page'>
       <div className='login-container '>
         <form>
+          <h2>LOGIN</h2>
           <br />
-          <label>UID:</label>
-          <br />
-          <br />
+          <label>UID</label><br/>
           <input type='text' name='uid' onChange={handleChange} />
           <br />
           <br />
-          <label>Password:</label>
-          <br />
-          <br />
+          <label>Password</label><br/>
           <input type='password' name='password' onChange={handleChange} />
+          <br />
           <br />
           <br />
           <button onClick={handlSubmit}>Login</button>

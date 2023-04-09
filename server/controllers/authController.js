@@ -41,7 +41,10 @@ const userLogin = async (req, res, next) => {
     try {
       let user = await authModel.findOne({ uid: req.body.uid }).select('+password');
       let userid = await userModel.findOne({uid: req.body.uid});
+      console.log(user);
+      console.log('h')
       user._id = userid;
+      console.log(user);
       let flag = -1;
     
       if (!user) {

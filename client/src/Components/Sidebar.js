@@ -14,6 +14,7 @@ function Sidebar() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showMoreGroups, setShowMoreGroups] = useState(true);
   const [showGroupsMenu, setShowGroupsMenu] = useState(false);
+  const [groups, setGroups] = useState([]);
   const [avatar, setAvatar] = useState(true);
   const [postClicked, setPostClicked] = useState(false);
   const navigate = useNavigate();
@@ -74,6 +75,8 @@ function Sidebar() {
 
   useEffect(() => {
     setIsLoggedIn(true);
+    var data=JSON.parse(localStorage.getItem('user'));
+    setGroups(data.user.groups);
     if (avatar === false) {
       let dpSelector = document.getElementById('nav-dp-cont');
       if (dpSelector != null) dpSelector.style.display = 'none';
@@ -83,6 +86,8 @@ function Sidebar() {
       if (dpSelector != null) dpSelector.style.display = 'block';
     }
   }, [avatar]);
+  console.log(groups)
+
 
   const handleHBclick = () => {
     setAvatar(!avatar);
@@ -156,22 +161,9 @@ function Sidebar() {
                   </span>
                   {showGroupsMenu && (
                     <ul>
-                      <li>1</li>
-                      <li>2</li>
-                      <li>3</li>
-                      {!showMoreGroups && (
-                        <>
-                          <li>4</li>
-                          <li>5</li>
-                          <li>5</li>
-                          <li>6</li>
-                          <li>7</li>
-                        </>
-                      )}
-                      <li onClick={() => setShowMoreGroups(!showMoreGroups)}>
-                        {showMoreGroups && <p>Show more</p>}
-                        {!showMoreGroups && <p>Show less</p>}
-                      </li>
+                      {groups.map((grp)=>{
+                        return(<li>{grp}</li>)
+                      })}
                     </ul>
                   )}
                 </li>

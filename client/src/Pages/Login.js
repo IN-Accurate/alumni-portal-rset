@@ -49,11 +49,7 @@ function Login() {
     axios
       .post('http://localhost:3001/auth/login', formData)
       .then((response) => {
-        // let id = response.data.user.id;
         console.log(response);
-        // axios.get(`http://localhost:3001/profile/${id}`).then((res) => {
-        //   navigate('/', { state: { data: res } });
-        // });
       });
 
     const userData = {

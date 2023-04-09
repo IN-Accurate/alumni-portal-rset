@@ -2,26 +2,19 @@ const postModel = require("../models/posts");
 const cloudinary = require("../utils/cloudinary");
 const userModel = require("../models/users");
 
-const newPost = async(req,res,next) => {
-  const {userid, title, text, image} = req.body;
-  try{
-    const user = userModel.findById(userid);
-    if(!user) {
-      res.status(401).json({error: true, message: "user not found"});
+const newPost = async(req, res, next) => {
+  const { userId, title, text, image } = req.body;
+  try {
+    const user = await userModel.findById(userId);
+    if (!user) {
+      console.log("bruhd");
+      return res.status(401).json({ error: true, message: "user not found" });
     }
     
     const result = await cloudinary.uploader.upload(image, {
-      folder: "posts",
-      //width: 300
-      //crop: "scale"
-    }, (err,result) => {
-      if (err) {
-        console.log(err);
-        return res.status(500).json({ error: 'Failed to upload file' });
-      }
+      folder: "posts"
     });
 
-    console.log("sus");
     const post = await postModel.create({
       userid,
       title,
@@ -32,11 +25,11 @@ const newPost = async(req,res,next) => {
       }
     });
     
-    res.status(201).json({success: true, post});
+    return res.status(201).json({ success: true, post });
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json({ error: "Failed to create post" });
   }
-  catch(err){
-    return res.status(500).json(err);
-  }
-} 
+};
 
-module.exports = {newPost}
+module.exports = { newPost };

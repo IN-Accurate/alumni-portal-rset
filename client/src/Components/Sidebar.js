@@ -31,12 +31,13 @@ function Sidebar() {
   const handleInputChange = (event) => {
     const target = event.target;
     const name = target.name;
-    const value = name === 'image' ? target.files[0] : target.value;
-
+    let value = (name === 'image') ? target.files[0] : target.value;
+    
     setFormData({
       ...formData,
-      [name]: value,
+      [name]: value
     });
+    console.log(formData);
 
     if (name === 'title') {
       setTitleCounter(value.length);
@@ -47,11 +48,17 @@ function Sidebar() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData();
-    data.append('userid', formData.userId);
-    data.append('title', formData.title);
-    data.append('text', formData.text);
-    data.append('image', formData.image);
+    // const data = new FormData();
+    // data.append('userId', formData.userId);
+    // data.append('title', formData.title);
+    // data.append('text', formData.text);
+    // data.append('image', formData.image);
+    const data = {
+      userId: formData.userId,
+      title: formData.title,
+      text: formData.text,
+      image: formData.image
+    }
     console.log(data);
     axios
       .post('http://localhost:3001/home/newpost', data)

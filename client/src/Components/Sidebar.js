@@ -86,7 +86,6 @@ function Sidebar() {
       if (dpSelector != null) dpSelector.style.display = 'block';
     }
   }, [avatar]);
-  console.log(groups)
 
 
   const handleHBclick = () => {

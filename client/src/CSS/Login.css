@@ -1,0 +1,46 @@
+.login-page{
+    background-color: #1f1d1d;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+}
+
+
+.login-container {
+    position: relative;
+    margin-left: 22vw;
+    padding: 25vh;
+}
+
+
+
+.login-container form {
+    text-align: center;
+    height: auto;
+    background-color: black;
+    border: 5px solid black;
+    border-radius: 10px;
+    width: 30vw;
+}
+
+.login-container label {
+    color: #caccce;
+}
+
+.login-container input {
+    width: 200px;
+    height: 50px;
+    border-radius: 8px;
+    border: none;
+    border: 2px solid black;
+}
+
+.login-container button {
+    background-color: #5865F2;
+    font-size: large;
+    color: white;
+    border-radius: 5px;
+    height: 10vh;
+    width: 15vw;
+
+}

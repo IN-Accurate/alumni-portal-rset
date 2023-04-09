@@ -1,6 +1,10 @@
 import React from "react";
-import axios from "axios";
 import '../CSS/RegistrationForm.css';
+import { useSelector, useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
+import { register, reset } from '../features/auth/authSlice'
+import { useEffect } from "react";
 
 function RegistrationForm(){
     const [formData, setFormData] = React.useState(
@@ -15,6 +19,27 @@ function RegistrationForm(){
         }
     )
 
+    const { name, email, password, uid, phone, branch, year } = formData
+
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+  
+    const { user, isLoading, isError, isSuccess, message } = useSelector(
+      (state) => state.auth
+    )
+
+    useEffect(() => {
+        if (isError) {
+          toast.error(message)
+        }
+    
+        if (isSuccess || user) {
+          navigate('/')
+        }
+    
+        dispatch(reset())
+      }, [user, isError, isSuccess, message, navigate, dispatch])
+
     function handleChange(event){
         setFormData(prevFormData =>{
             return{
@@ -25,11 +50,18 @@ function RegistrationForm(){
     }
     function onSubmit(event) {
             event.preventDefault();
-            axios.post("http://localhost:3001/auth/register",formData).then((response) => {
-              console.log(response)
-            });
+            const userData = {
+                email,
+                uid,
+                phone,
+                name,
+                password,
+                branch,
+                year
+              }
+        
+            dispatch(register(userData))
     }    
-    console.log(formData);
 
     const today = new Date();
     const latest_passout = today.getFullYear();
@@ -43,6 +75,7 @@ function RegistrationForm(){
     const getbranches=branches.map(branch=>{
         return(<option value={branch}>{branch}</option>)});
     return(
+        <>
         <div className="register-container">
         <form className="register-form">
             <h2>SIGN UP</h2>
@@ -67,6 +100,7 @@ function RegistrationForm(){
             <button className="reg-button" onClick={onSubmit}>Register</button><br/><br/>
         </form>
         </div>
+        </>
     )
 
 }

@@ -9,7 +9,7 @@ router.route("/:id").put(updateUsers)
 router.route("/:id").delete(deleteUsers);
 
 //get a user
-router.route("/:id").get(getUser);
+router.route("/:id").get(protect,getUser);
 
 //get user groups
 router.route("/groups/:id").get(userGroups);

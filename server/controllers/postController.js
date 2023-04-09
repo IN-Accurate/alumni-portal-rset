@@ -5,7 +5,6 @@ const userModel = require("../models/users");
 const newPost = async(req,res,next) => {
   const {userid, title, text, image} = req.body;
   try{
-
     const user = userModel.findById(userid);
     if(!user) {
       res.status(401).json({error: true, message: "user not found"});

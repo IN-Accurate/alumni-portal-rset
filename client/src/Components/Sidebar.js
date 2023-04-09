@@ -48,10 +48,11 @@ function Sidebar() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData();
-    data.append('userId', formData.userId);
+    data.append('userid', formData.userId);
     data.append('title', formData.title);
     data.append('text', formData.text);
     data.append('image', formData.image);
+    console.log(data);
     axios
       .post('http://localhost:3001/home/newpost', data)
       .then((response) => console.log(response.data))
